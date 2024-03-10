@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
+    name: Publish site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,7 +15,6 @@ jobs:
 
 
       - name: Build and deploy
-        uses: shalzz/zola-action@v0.17.1
+        uses: shalzz/zola-action@v0.18.0
         env:
-          PAGES_BRANCH: gh-pages
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
